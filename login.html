@@ -116,7 +116,7 @@
                         //(1)修改模态框提示信息 
                         $('.modal-body>p').text(backData.msg);
                         //(2)弹出模态框
-                        $('#myModal').modal();
+                        $('#myModal').modal();//括号里面{keyboard:true}，按Esc键可以关闭模态框
                     }
                 }
             });
