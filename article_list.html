@@ -234,9 +234,9 @@
                             方案二： 给getArticleList添加布尔类型参数，只有点击筛选才需要调用loadPagination()，性能高一些
                         */
                         //只有点击的页数和当前页数不一致才请求数据
-                        // if(startPage != page) {
-                            getArticleList(page);
-                        // }
+                        if(startPage != page) {
+                        getArticleList(page);
+                        }
                     }
                 });
             }
@@ -274,16 +274,16 @@
 
             // 4.删除：
             // 注意点：动态添加元素 需要注册委托事件
-            $('.table>tbody').on('click','.delete',function() {
+            $('.table>tbody').on('click', '.delete', function () {
                 var id = $('.delete').attr('data-id');
                 $.ajax({
-                    url:BigNew.article_delete,
-                    type:'post',
-                    dataType:'json',
-                    data:{id:id},
-                    success: function(backData){
+                    url: BigNew.article_delete,
+                    type: 'post',
+                    dataType: 'json',
+                    data: { id: id },
+                    success: function (backData) {
                         console.log(backData);
-                        if(backData.code == 204) {
+                        if (backData.code == 204) {
                             alert('删除成功');
                             window.location.reload();
                         }
